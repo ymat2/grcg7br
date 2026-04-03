@@ -4,12 +4,12 @@
 \name{grcg7br-package}
 \alias{grcg7br}
 \alias{grcg7br-package}
-\title{grcg7br: What the Package Does (One Line, Title Case)}
+\title{grcg7br: Usethis for the GRCg7b Genes in R}
 \description{
-What the package does (one paragraph).
+Usethis for the GRCg7b Genes in R.
 }
 \author{
-\strong{Maintainer}: First Last \email{first.last@example.com}
+\strong{Maintainer}: Yuki Matsuda \email{yuki.matsuda.m10@gmail.com} (\href{https://orcid.org/0009-0006-2288-1621}{ORCID})
 
 }
 \keyword{internal}
