@@ -4,16 +4,24 @@
 \alias{gggenes}
 \title{Visualize gene structure}
 \usage{
-gggenes(chrom, from, to, nrows = 1)
+gggenes(chrom, from, to, color = "#333333", nrows = 1, label = "all", ...)
 }
 \arguments{
 \item{chrom}{Accessions of chromosome}
 
 \item{from}{Start position in bp}
 
-\item{to}{end position in bp}
+\item{to}{End position in bp}
+
+\item{color}{Color of genes}
 
 \item{nrows}{number of rows when visualizing gene structures}
+
+\item{label}{Whether to show gene names.
+\code{all} shows all gene names and \code{none} hides them.
+You can use a character vecter of gene names to show a part of them.}
+
+\item{...}{Other arguments passed on to \code{ggplot2::theme_test()}}
 }
 \description{
 Visualize gene structure
