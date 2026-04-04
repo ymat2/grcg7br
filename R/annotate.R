@@ -4,13 +4,12 @@
 #' @param seqnames Colname passed to seqnames.field (e.g. `CHROM`)
 #' @param start Colname passed to start.field (e.g. `BIN_START`)
 #' @param end Colname passed to end.field. If not supplied, `start` is used instesad. (e.g. `BIN_END`)
-#' @param ... Other arguments passed on to [GenomicRanges::makeGRangesFromDataFrame()]
 #' @importFrom rlang .data
 #' @importFrom rlang :=
 #' @rdname annotate
 #' @export
 
-annotate = function(df, seqnames, start, end = start, ...) {
+annotate = function(df, seqnames, start, end) {
   gr = GenomicRanges::makeGRangesFromDataFrame(
     df,
     keep.extra.columns = TRUE,
@@ -20,18 +19,20 @@ annotate = function(df, seqnames, start, end = start, ...) {
     end.field = end
   )
 
-  gff = GenomicRanges::makeGRangesFromDataFrame(
-    grcg7br::genes,
-    keep.extra.columns = FALSE,
+  genes = grcg7br::genes |>
+    dplyr::select(.data$seqname, .data$start, .data$end, .data$gene)
+  genes = GenomicRanges::makeGRangesFromDataFrame(
+    genes,
+    keep.extra.columns = TRUE,
     ignore.strand = TRUE,
     seqnames.field = "seqname",
     start.field = "start",
-    end.field = "end"
+    end.field = "end",
   )
 
   df_overlap = IRanges::mergeByOverlaps(
       gr,
-      gff,
+      genes,
       maxgap = -1L,
       minoverlap = 0L,
       type = "any",

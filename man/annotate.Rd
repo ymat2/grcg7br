@@ -14,8 +14,6 @@ annotate(df, seqnames, start, end = start, ...)
 \item{start}{Colname passed to start.field (e.g. \code{BIN_START})}
 
 \item{end}{Colname passed to end.field. If not supplied, \code{start} is used instesad. (e.g. \code{BIN_END})}
-
-\item{...}{Other arguments passed on to \code{\link[GenomicRanges:makeGRangesFromDataFrame]{GenomicRanges::makeGRangesFromDataFrame()}}}
 }
 \description{
 Annotate gene name to bed style dataframe
