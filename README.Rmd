@@ -1,0 +1,85 @@
+---
+title: "GRCg7br"
+auther: "Yuki MATSUDA"
+output: github_document
+---
+
+```{r, include=FALSE}
+devtools::load_all()
+```
+
+`GRCg7br` is a personal R package to annotate and visualize genes of chicken genome
+[bGalGal1.mat.broiler.GRCg7b](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_016699485.2/).
+
+
+## Installation
+
+You can use `devtools`:
+
+```r
+install.packages("devtools")
+devtools::install_github("ymat2/GRCg7br")
+```
+
+Alternatively, you can use `pak`:
+
+```r
+install.packages("pak")
+pak::pkg_install("ymat2/GRCg7br")
+```
+
+
+## Usage
+
+GRCg7br provides 2 functions: `annotate()` and `gggenes()`.
+
+### `annotate()`
+
+This function takes a data frame containing
+chromosome, start, and end columns---such as output files from VCFtools---and
+annotates genes from GRCg7b assembly that overlap those regions.
+Internally, it uses [GenomicRanges](https://github.com/Bioconductor/GenomicRanges).
+
+Example:
+
+```{r, echo=FALSE, message=FALSE}
+fst = readr::read_tsv("inst/extdata/sample.fst")
+knitr::kable(fst)
+```
+
+```{r, message=FALSE}
+fst_genes = fst |> grcg7br::annotate(seqname = "CHROM", start = "BIN_START", end = "BIN_END")
+```
+
+```{r, echo=FALSE, message=FALSE}
+knitr::kable(fst_genes)
+```
+
+### `gggenes()`
+
+This function visualize gene structures within a specific genomic ranges.
+
+Example:
+
+```{r}
+grcg7br::gggenes(
+  chrom = "NC_052535.1",
+  from = 85000001,
+  to = 85200001,
+  color = "#A4A082",
+  nrow = 3
+)
+```
+
+You can use a vecter of gene names to show a part of genes in the region:
+
+```{r}
+grcg7br::gggenes(
+  chrom = "NC_052535.1",
+  from = 85000001,
+  to = 85200001,
+  color = "#A4A082",
+  nrow = 3,
+  label = c("REEP1", "KDM3A")
+)
+```
