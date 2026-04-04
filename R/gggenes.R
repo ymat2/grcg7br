@@ -63,7 +63,7 @@ gggenes = function(chrom, from, to, color = "#333333", nrow = 1, label = "all", 
       fontface = "italic",
       vjust = -1
     ) +
-    ggplot2::scale_y_continuous(expand = ggplot2::expansion(mult = c(.1, .5))) +
+    ggplot2::scale_y_continuous(expand = ggplot2::expansion(mult = c(.1, .15))) +
     ggplot2::coord_cartesian(xlim = c(from, to)) +
     ggplot2::labs(x = chrom) +
     ggplot2::theme_test(...) +

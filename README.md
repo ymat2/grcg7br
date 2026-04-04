@@ -69,7 +69,7 @@ Example:
 grcg7br::gggenes(
   chrom = "NC_052535.1",
   from = 85000001,
-  to = 85200001,
+  to = 85150001,
   color = "#A4A082",
   nrow = 3
 )
@@ -84,7 +84,7 @@ region:
 grcg7br::gggenes(
   chrom = "NC_052535.1",
   from = 85000001,
-  to = 85200001,
+  to = 85150001,
   color = "#A4A082",
   nrow = 3,
   label = c("REEP1", "KDM3A")
