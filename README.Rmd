@@ -57,7 +57,7 @@ knitr::kable(fst_genes)
 
 ### `gggenes()`
 
-This function visualize gene structures within a specific genomic ranges.
+This function visualizes gene structures within a specific genomic range using `ggplot2` ecosystem.
 
 Example:
 

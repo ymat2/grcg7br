@@ -60,8 +60,8 @@ fst_genes = fst |> grcg7br::annotate(seqname = "CHROM", start = "BIN_START", end
 
 ### `gggenes()`
 
-This function visualize gene structures within a specific genomic
-ranges.
+This function visualizes gene structures within a specific genomic range
+using `ggplot2` ecosystem.
 
 Example:
 
