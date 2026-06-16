@@ -1,7 +1,7 @@
 GRCg7br
 ================
 
-`GRCg7br` is a personal R package to annotate and visualize genes of
+`grcg7br` is a personal R package to annotate and visualize genes of
 chicken genome
 [bGalGal1.mat.broiler.GRCg7b](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_016699485.2/).
 
@@ -11,19 +11,19 @@ You can use `devtools`:
 
 ``` r
 install.packages("devtools")
-devtools::install_github("ymat2/GRCg7br")
+devtools::install_github("ymat2/grcg7br")
 ```
 
 Alternatively, you can use `pak`:
 
 ``` r
 install.packages("pak")
-pak::pkg_install("ymat2/GRCg7br")
+pak::pkg_install("ymat2/grcg7br")
 ```
 
 ## Usage
 
-GRCg7br provides 2 functions: `annotate()` and `gggenes()`.
+grcg7br provides 2 functions: `annotate()` and `gggenes()`.
 
 ### `annotate()`
 
