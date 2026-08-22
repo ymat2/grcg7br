@@ -92,3 +92,13 @@ grcg7br::gggenes(
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+
+### Other utilities
+
+- `accession2chrom`: Cross-reference table between chromosome accession
+  and chromosome number (e.g. NC_052532.1 = 1)
+
+- `cumsum_seq_length`: Helper dataframe to convert position in
+  chromosome to cumsum position (used for manhattan plot)
+
+- `chrom_axis`: axis labels and positions for manhattan plot

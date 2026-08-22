@@ -10,7 +10,26 @@ usethis::use_data(exons, overwrite = TRUE)
 # }
 # grcg7b = readr::read_delim("data-raw/grcg7b.txt", comment = "#", delim = "\t")
 
-accession2chrom = readr::read_tsv("data-raw/GRCg7b_sequence_report.tsv") |>
+GRCg7b_sequence_report = readr::read_tsv("data-raw/GRCg7b_sequence_report.tsv")
+
+accession2chrom = GRCg7b_sequence_report |>
   dplyr::rename(CHROM = `RefSeq seq accession`, chr = `Chromosome name`) |>
   dplyr::select(CHROM, chr)
 usethis::use_data(accession2chrom, overwrite = TRUE)
+
+cumsum_seq_length = GRCg7b_sequence_report |>
+  dplyr::rename(CHROM = `RefSeq seq accession`, length = `Seq length`) |>
+  dplyr::mutate(cumsum_seq_length = dplyr::lag(cumsum(length), default = 0)) |>
+  dplyr::select(CHROM, cumsum_seq_length)
+usethis::use_data(cumsum_seq_length, overwrite = TRUE)
+
+chrom_axis = GRCg7b_sequence_report |>
+  dplyr::rename(CHROM = `RefSeq seq accession`, chr = `Chromosome name`, length = `Seq length`) |>
+  dplyr::mutate(chr = dplyr::if_else(stringr::str_detect(CHROM, "^NW"), "Un", chr)) |>
+  dplyr::mutate(chr = forcats::fct_inorder(chr)) |>
+  dplyr::mutate(cumsum_seq_length = dplyr::lag(cumsum(length), default = 0)) |>
+  dplyr::mutate(center = length / 2 + cumsum_seq_length) |>
+  dplyr::group_by(chr) |>
+  dplyr::summarise(center = mean(center)) |>
+  dplyr::ungroup()
+usethis::use_data(chrom_axis, overwrite = TRUE)

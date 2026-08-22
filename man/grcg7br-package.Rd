@@ -11,5 +11,10 @@ Usethis for the GRCg7b Genes in R.
 \author{
 \strong{Maintainer}: Yuki Matsuda \email{yuki.matsuda.m10@gmail.com} (\href{https://orcid.org/0009-0006-2288-1621}{ORCID})
 
+Authors:
+\itemize{
+  \item Yuki Matsuda \email{yuki.matsuda.m10@gmail.com} (\href{https://orcid.org/0009-0006-2288-1621}{ORCID})
+}
+
 }
 \keyword{internal}
