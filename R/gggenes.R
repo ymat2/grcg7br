@@ -4,7 +4,8 @@
 #' @param from Start position in bp
 #' @param to End position in bp
 #' @param color Color of genes
-#' @param nrow number of rows when visualizing gene structures
+#' @param nrow Number of rows when visualizing gene structures
+#' @param textsize Label sizes of genes in `geom_text()` 
 #' @param label Whether to show gene names.
 #' `all` shows all gene names and `none` hides them.
 #'  You can use a character vecter of gene names to show a part of them.
@@ -12,7 +13,7 @@
 #' @rdname gggenes
 #' @export
 
-gggenes = function(chrom, from, to, color = "#333333", nrow = 1, label = "all", ...) {
+gggenes = function(chrom, from, to, color = "#333333", nrow = 1, textsize = 3.88, label = "all", ...) {
   chr_genes = grcg7br::genes |>
     dplyr::filter(.data$seqname == chrom) |>
     dplyr::filter(.data$end >= from & .data$start <= to) |>
@@ -60,6 +61,7 @@ gggenes = function(chrom, from, to, color = "#333333", nrow = 1, label = "all", 
         y = .data$ypos,
         label = .data$gene
         ),
+      size = textsize,
       fontface = "italic",
       vjust = -1
     ) +

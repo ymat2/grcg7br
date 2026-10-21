@@ -4,7 +4,16 @@
 \alias{gggenes}
 \title{Visualize gene structure}
 \usage{
-gggenes(chrom, from, to, color = "#333333", nrow = 1, label = "all", ...)
+gggenes(
+  chrom,
+  from,
+  to,
+  color = "#333333",
+  nrow = 1,
+  textsize = 3.88,
+  label = "all",
+  ...
+)
 }
 \arguments{
 \item{chrom}{Accessions of chromosome}
@@ -15,7 +24,9 @@ gggenes(chrom, from, to, color = "#333333", nrow = 1, label = "all", ...)
 
 \item{color}{Color of genes}
 
-\item{nrow}{number of rows when visualizing gene structures}
+\item{nrow}{Number of rows when visualizing gene structures}
+
+\item{textsize}{Label sizes of genes in \code{geom_text()}}
 
 \item{label}{Whether to show gene names.
 \code{all} shows all gene names and \code{none} hides them.
