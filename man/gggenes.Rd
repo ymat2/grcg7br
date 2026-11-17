@@ -11,6 +11,7 @@ gggenes(
   color = "#333333",
   nrow = 1,
   textsize = 3.88,
+  show_strand = FALSE,
   label = "all",
   ...
 )
@@ -27,6 +28,8 @@ gggenes(
 \item{nrow}{Number of rows when visualizing gene structures}
 
 \item{textsize}{Label sizes of genes in \code{geom_text()}}
+
+\item{show_strand}{Whether to show directions of strands}
 
 \item{label}{Whether to show gene names.
 \code{all} shows all gene names and \code{none} hides them.

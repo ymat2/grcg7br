@@ -6,6 +6,7 @@
 #' @param color Color of genes
 #' @param nrow Number of rows when visualizing gene structures
 #' @param textsize Label sizes of genes in `geom_text()` 
+#' @param show_strand Whether to show directions of strands
 #' @param label Whether to show gene names.
 #' `all` shows all gene names and `none` hides them.
 #'  You can use a character vecter of gene names to show a part of them.
@@ -13,7 +14,7 @@
 #' @rdname gggenes
 #' @export
 
-gggenes = function(chrom, from, to, color = "#333333", nrow = 1, textsize = 3.88, label = "all", ...) {
+gggenes = function(chrom, from, to, color = "#333333", nrow = 1, textsize = 3.88, show_strand = FALSE, label = "all", ...) {
   chr_genes = grcg7br::genes |>
     dplyr::filter(.data$seqname == chrom) |>
     dplyr::filter(.data$end >= from & .data$start <= to) |>
@@ -74,5 +75,21 @@ gggenes = function(chrom, from, to, color = "#333333", nrow = 1, textsize = 3.88
       axis.text.y = ggplot2::element_blank(),
       axis.ticks.y = ggplot2::element_blank()
     )
+  
+  if (show_strand) {
+    g = g +
+      ggplot2::geom_point(
+        data = chr_genes,
+        ggplot2::aes(
+          x = (.data$start + .data$end) / 2,
+          y = .data$ypos,
+          shape = .data$strand
+        ),
+        size = textsize
+      ) +
+      ggplot2::scale_shape_manual(values = c("+" = 62, "-" = 60)) +
+      ggplot2::theme(legend.position = "none")
+  }
+  
   g
 }

@@ -34,6 +34,10 @@ GRCg7b assembly that overlap those regions. Internally, it uses
 
 Example:
 
+``` r
+fst = readr::read_tsv("inst/extdata/sample.fst")
+```
+
 | CHROM       | BIN_START |   BIN_END |   FST |
 |:------------|----------:|----------:|------:|
 | NC_052532.1 |  38960001 |  38980000 | 0.001 |
@@ -75,10 +79,10 @@ grcg7br::gggenes(
 )
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 You can use a vecter of gene names to show a part of genes in the
-region:
+region, and `show_strand = TRUE` to show gene strand direction:
 
 ``` r
 grcg7br::gggenes(
@@ -87,11 +91,12 @@ grcg7br::gggenes(
   to = 85150001,
   color = "#A4A082",
   nrow = 3,
+  show_strand = TRUE,
   label = c("REEP1", "KDM3A")
 )
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
 ### Other utilities
 

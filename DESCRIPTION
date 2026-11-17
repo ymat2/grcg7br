@@ -1,6 +1,6 @@
 Package: grcg7br
 Title: Usethis for the GRCg7b Genes in R
-Version: 0.1.0
+Version: 0.1.1
 Authors@R:
     person("Yuki", "Matsuda", , "yuki.matsuda.m10@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0009-0006-2288-1621"))

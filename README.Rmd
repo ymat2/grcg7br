@@ -42,8 +42,11 @@ Internally, it uses [GenomicRanges](https://github.com/Bioconductor/GenomicRange
 
 Example:
 
-```{r, echo=FALSE, message=FALSE}
+```{r, message=FALSE}
 fst = readr::read_tsv("inst/extdata/sample.fst")
+```
+
+```{r, echo=FALSE, message=FALSE}
 knitr::kable(fst)
 ```
 
@@ -71,7 +74,8 @@ grcg7br::gggenes(
 )
 ```
 
-You can use a vecter of gene names to show a part of genes in the region:
+You can use a vecter of gene names to show a part of genes in the region,
+and `show_strand = TRUE` to show gene strand direction:
 
 ```{r}
 grcg7br::gggenes(
@@ -80,6 +84,7 @@ grcg7br::gggenes(
   to = 85150001,
   color = "#A4A082",
   nrow = 3,
+  show_strand = TRUE,
   label = c("REEP1", "KDM3A")
 )
 ```
