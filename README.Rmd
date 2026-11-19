@@ -1,6 +1,6 @@
 ---
 title: "GRCg7br"
-auther: "Yuki MATSUDA"
+author: "Yuki MATSUDA"
 output: github_document
 ---
 
@@ -51,7 +51,7 @@ knitr::kable(fst)
 ```
 
 ```{r, message=FALSE}
-fst_genes = fst |> grcg7br::annotate(seqname = "CHROM", start = "BIN_START", end = "BIN_END")
+fst_genes = fst |> grcg7br::annotate(seqnames = "CHROM", start = "BIN_START", end = "BIN_END")
 ```
 
 ```{r, echo=FALSE, message=FALSE}
@@ -74,7 +74,7 @@ grcg7br::gggenes(
 )
 ```
 
-You can use a vecter of gene names to show a part of genes in the region,
+You can use a vector of gene names to show a part of genes in the region,
 and `show_strand = TRUE` to show gene strand direction:
 
 ```{r}

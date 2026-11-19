@@ -3,7 +3,7 @@
 #' @param df A data.frame. with bed style
 #' @param seqnames Colname passed to seqnames.field (e.g. `CHROM`)
 #' @param start Colname passed to start.field (e.g. `BIN_START`)
-#' @param end Colname passed to end.field. If not supplied, `start` is used instesad. (e.g. `BIN_END`)
+#' @param end Colname passed to end.field. (e.g. `BIN_END`)
 #' @importFrom rlang .data
 #' @importFrom rlang :=
 #' @rdname annotate
@@ -53,7 +53,7 @@ annotate = function(df, seqnames, start, end) {
 
   df_merge = df |> dplyr::left_join(
     df_overlap,
-    by = tidyselect::all_of(c(seqnames, start, end))
+    by = c(seqnames, start, end)
   )
 
   return(df_merge)

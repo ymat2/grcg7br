@@ -13,7 +13,7 @@ annotate(df, seqnames, start, end)
 
 \item{start}{Colname passed to start.field (e.g. \code{BIN_START})}
 
-\item{end}{Colname passed to end.field. If not supplied, \code{start} is used instesad. (e.g. \code{BIN_END})}
+\item{end}{Colname passed to end.field. (e.g. \code{BIN_END})}
 }
 \description{
 Annotate gene name to bed style dataframe

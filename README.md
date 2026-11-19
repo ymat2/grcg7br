@@ -1,5 +1,6 @@
 GRCg7br
 ================
+Yuki MATSUDA
 
 `grcg7br` is a personal R package to annotate and visualize genes of
 chicken genome
@@ -47,7 +48,7 @@ fst = readr::read_tsv("inst/extdata/sample.fst")
 | NC_052535.1 |  85000001 |  85020000 | 0.009 |
 
 ``` r
-fst_genes = fst |> grcg7br::annotate(seqname = "CHROM", start = "BIN_START", end = "BIN_END")
+fst_genes = fst |> grcg7br::annotate(seqnames = "CHROM", start = "BIN_START", end = "BIN_END")
 ```
 
 | CHROM       | BIN_START |   BIN_END |   FST | gene         |
@@ -81,7 +82,7 @@ grcg7br::gggenes(
 
 ![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
-You can use a vecter of gene names to show a part of genes in the
+You can use a vector of gene names to show a part of genes in the
 region, and `show_strand = TRUE` to show gene strand direction:
 
 ``` r
